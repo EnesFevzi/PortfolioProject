@@ -12,7 +12,8 @@
     <Folder Include="Extensions\" />
     <Folder Include="FluentValidations\" />
     <Folder Include="Models\" />
-    <Folder Include="Service\" />
+    <Folder Include="Service\Abstract\" />
+    <Folder Include="Service\Concrete\" />
   </ItemGroup>
 
   <ItemGroup>

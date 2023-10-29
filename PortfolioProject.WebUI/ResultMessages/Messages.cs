@@ -59,6 +59,25 @@
                 return $"{educationName} başlıklı eğitim bilgisi başarıyla geri alınmıştır.";
             }
         }
+        public static class Portfolio
+        {
+            public static string Add(string portfolioName)
+            {
+                return $"{portfolioName} başlıklı portfolyo bilgisi başarıyla eklenmiştir.";
+            }
+            public static string Update(string portfolioName)
+            {
+                return $"{portfolioName} başlıklı portfolyo bilgisi başarıyla güncellenmiştir.";
+            }
+            public static string Delete(string portfolioName)
+            {
+                return $"{portfolioName} başlıklı portfolyo bilgisi başarıyla silinmiştir.";
+            }
+            public static string UndoDelete(string portfolioName)
+            {
+                return $"{portfolioName} başlıklı portfolyo bilgisi başarıyla geri alınmıştır.";
+            }
+        }
         public static class User
         {
             public static string Add(string userName)

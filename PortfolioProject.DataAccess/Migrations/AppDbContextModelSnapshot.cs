@@ -94,7 +94,7 @@ namespace PortfolioProject.DataAccess.Migrations
                             Address = "Çorlu/TEKİRDAĞ",
                             Age = 25,
                             CreatedBy = "Enes Fevzi",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(5169),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(6162),
                             DeletedBy = "Enes Fevzi",
                             Description = "Üniversite eğitimim sırasında yazılım alanına olan ilgim, aldığım yazılım dersleriyle başladı. Bu süre zarfında, kendimi sürekli olarak geliştirmek ve yeni beceriler kazanmak için Türkiye'nin önde gelen teknoloji yarışmalarına katıldım ve bir dizi derece elde ettim. Mezuniyetimin ardından, Bilge Adam Akademi'nin Boost Yıldız Yazılımcı Yetiştirme programına katıldım.",
                             ImageID = new Guid("f71f4b9a-aa60-461d-b398-de31001bf214"),
@@ -138,14 +138,14 @@ namespace PortfolioProject.DataAccess.Migrations
                         new
                         {
                             Id = new Guid("343f8370-28d4-4ade-91df-7965041b98f1"),
-                            ConcurrencyStamp = "b8376b1b-0277-4264-b6a7-50a15db13fcb",
+                            ConcurrencyStamp = "20fdcdec-6fc9-416f-844e-ac3ccbb8ce88",
                             Name = "Superadmin",
                             NormalizedName = "SUPERADMIN"
                         },
                         new
                         {
                             Id = new Guid("f0a0b477-42aa-47fd-9e01-a81da466848d"),
-                            ConcurrencyStamp = "af4ab029-af7b-4f60-bc35-3969c3dfa1d6",
+                            ConcurrencyStamp = "732bd815-753a-451c-8da3-4bcbc81737b6",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -258,7 +258,7 @@ namespace PortfolioProject.DataAccess.Migrations
                         {
                             Id = new Guid("cb94223b-ccb8-4f2f-93d7-0df96a7f065c"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "736fc84a-f4dc-4c23-9828-f9daa9681034",
+                            ConcurrencyStamp = "78d5cabf-922f-4c23-a4be-d28d5aeadd2d",
                             Email = "superadmin@gmail.com",
                             EmailConfirmed = true,
                             FirstName = "Cem",
@@ -267,10 +267,10 @@ namespace PortfolioProject.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "SUPERADMIN@GMAIL.COM",
                             NormalizedUserName = "SUPERADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFctqzMsiQfnA9nsEvnsDsdVB6EDoknF8k5VZnM0K84isu4o2q40uYiulzSaTs4I3Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELmPv8I7Eni+dZgOeFNS30Z6XW+DX3hwoR5K6zGmW9kYC58FfJGOuTlizX/7h2lNug==",
                             PhoneNumber = "+905439999999",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "3de13840-2c19-4190-a08b-ad2f4b24d48c",
+                            SecurityStamp = "9a49134b-bdbd-4955-998f-32a76ee8ccd6",
                             TwoFactorEnabled = false,
                             UserName = "superadmin@gmail.com"
                         },
@@ -278,7 +278,7 @@ namespace PortfolioProject.DataAccess.Migrations
                         {
                             Id = new Guid("3aa42229-1c0f-4630-8c1a-db879ecd0427"),
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "939eb743-c55b-4372-9905-08d4ea52fdda",
+                            ConcurrencyStamp = "86d662c2-abc3-4d5f-9b0a-92079bb4a48c",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -287,10 +287,10 @@ namespace PortfolioProject.DataAccess.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAENXr1uNuzAeg+MVjmrvpYXxAhGJAM5L+Wdemq+ejg2VrDhT6l6JIG6fCKTE+yUlN+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG2pCsS8WLWeUoaZ4LMRBE0Gz5EPxIgUWjn5LlE4VYFyywCIanhqojEfvmcGjzKhbA==",
                             PhoneNumber = "+905439999988",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "43b0a1d4-3623-4640-8330-67d7560af70d",
+                            SecurityStamp = "2594acf8-77d3-404a-974a-048bba62048b",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -446,7 +446,7 @@ namespace PortfolioProject.DataAccess.Migrations
                             EducationID = new Guid("d2fbacfa-415b-4c5a-b20c-efe531c75d61"),
                             Content = "Mekatronik Mühendisliği bölümünü 3.22 akademik ortalama ile bitirdim.",
                             CreatedBy = "SuperAdmin",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(5911),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(7189),
                             DeletedBy = "Enes Fevzi",
                             EndTime = new DateTime(2023, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -460,7 +460,7 @@ namespace PortfolioProject.DataAccess.Migrations
                             EducationID = new Guid("36719172-eaf3-4963-ab41-d88aac522f76"),
                             Content = "Elektrik-Elektronik Teknolojisi Bölümünü Okul Birinciliği ile tamamladım.",
                             CreatedBy = "SuperAdmin",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(5914),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(7195),
                             DeletedBy = "Enes Fevzi",
                             EndTime = new DateTime(2023, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -528,7 +528,7 @@ namespace PortfolioProject.DataAccess.Migrations
                             ExperienceID = new Guid("c0cae11a-f46b-4c89-b9ca-b80ce5152f22"),
                             Content = "Son teknolojiyle entegre edilmiş eğitim içeriği ve gerçek dünya uygulamaları ve\r\nsimülasyonlarını bir araya getiren, 8 ay süren yazılımcı yetiştirme programıdır.",
                             CreatedBy = "SuperAdmin",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(5984),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(7302),
                             DeletedBy = "Enes Fevzi",
                             EndTime = new DateTime(2023, 12, 8, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             IsDeleted = false,
@@ -542,7 +542,7 @@ namespace PortfolioProject.DataAccess.Migrations
                             ExperienceID = new Guid("112bd5a2-be97-4648-a766-b78d3f22b800"),
                             Content = "Mekatronik Mühendisi olarak çalıştığım Brülör Teknik Servis Şirketi",
                             CreatedBy = "SuperAdmin",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(5988),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(7308),
                             DeletedBy = "Enes Fevzi",
                             IsDeleted = false,
                             ModifiedBy = "Enes Fevzi",
@@ -597,9 +597,9 @@ namespace PortfolioProject.DataAccess.Migrations
                         {
                             ImageID = new Guid("f71f4b9a-aa60-461d-b398-de31001bf214"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(6051),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(7401),
                             DeletedBy = "Enes Fevzi",
-                            FileName = "images/testimage",
+                            FileName = "images/defaultPortfolio.jpg",
                             FileType = "jpg",
                             IsDeleted = false,
                             ModifiedBy = "Enes Fevzi"
@@ -608,7 +608,7 @@ namespace PortfolioProject.DataAccess.Migrations
                         {
                             ImageID = new Guid("d16a6ec7-8c50-4ab0-89a5-02b9a551f0fa"),
                             CreatedBy = "Admin Test",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(6053),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 187, DateTimeKind.Local).AddTicks(7405),
                             DeletedBy = "Enes Fevzi",
                             FileName = "images/vstest",
                             FileType = "png",
@@ -750,7 +750,7 @@ namespace PortfolioProject.DataAccess.Migrations
                         {
                             SkillID = new Guid("359e96f1-42f4-42ac-8521-df585bff9086"),
                             CreatedBy = "SuperAdmin",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(8721),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 188, DateTimeKind.Local).AddTicks(811),
                             DeletedBy = "Enes Fevzi",
                             IsDeleted = false,
                             ModifiedBy = "Enes Fevzi",
@@ -762,7 +762,7 @@ namespace PortfolioProject.DataAccess.Migrations
                         {
                             SkillID = new Guid("62d9f2f3-9390-4cf8-a67a-92d98c71a2c6"),
                             CreatedBy = "SuperAdmin",
-                            CreatedDate = new DateTime(2023, 10, 29, 15, 55, 14, 868, DateTimeKind.Local).AddTicks(8726),
+                            CreatedDate = new DateTime(2023, 10, 30, 0, 37, 40, 188, DateTimeKind.Local).AddTicks(816),
                             DeletedBy = "Enes Fevzi",
                             IsDeleted = false,
                             ModifiedBy = "Enes Fevzi",

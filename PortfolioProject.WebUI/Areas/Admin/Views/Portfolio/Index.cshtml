@@ -12,13 +12,12 @@
             <a class="btn btn-success mb-3" asp-area="Admin" asp-controller="Portfolio" asp-action="Add">
                 Portfolyo Ekle <i class="bx bx-plus"></i>
             </a>
-            <table class="table table-bordered" id="experiencesTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="portfoliosTable" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Başlık</th>
                         <th>İçerik</th>
-                        <th>Başlangıç Tarihi</th>
-                        <th>Bitiş Tarihi</th>
+                        <th>Link</th>
                         <th>Oluşturan</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
@@ -29,43 +28,40 @@
                     <tr>
                         <th>Başlık</th>
                         <th>İçerik</th>
-                        <th>Başlangıç Tarihi</th>
-                        <th>Bitiş Tarihi</th>
+                        <th>Link</th>
                         <th>Oluşturan</th>
                         <th>Durum</th>
                         <th>İşlemler</th>
                     </tr>
                 </tfoot>
                 <tbody class="table-border-bottom-0">
-                    @* @foreach (var experience in Model)
+                    @foreach (var item in Model)
                     {
-                        <tr name="@experience.ExperienceID">
-                            <td>@experience.Name</td>
-                            @if (@experience.Content.Length < 30)
+                        <tr name="@item.PortfolioID">
+                            <td>@item.Name</td>
+                            @if (@item.Content.Length < 30)
                             {
-                                <td>@experience.Content</td>
+                                <td>@item.Content</td>
                             }
                             else
                             {
-                                <td>@experience.Content.Substring(0,30)...</td>
+                                <td>@item.Content.Substring(0,30)...</td>
                             }
-
-                            <td>@experience.StartTime.ToShortDateString()</td>
-                            <td>@experience.EndTime.ToShortDateString()</td>
-                            <td>@experience.CreatedBy</td>
-                            <td>@(experience.IsDeleted ? "Aktif Değil" : "Aktif")</td>
+                            <td>@item.ProjectURL</td>
+                            <td>@item.CreatedBy</td>
+                            <td>@(item.IsDeleted ? "Aktif Değil" : "Aktif")</td>
 
                             <td>
 
-                                <a class="btn btn-primary btn-sm" data-id="@experience.ExperienceID" asp-area="Admin" asp-controller="Experience" asp-action="Update" asp-route-experienceId="@experience.ExperienceID"><i class="bx bxs-edit"></i></a>
+                                <a class="btn btn-primary btn-sm" data-id="@item.PortfolioID" asp-area="Admin" asp-controller="Portfolio" asp-action="Update" asp-route-portfolioId="@item.PortfolioID"><i class="bx bxs-edit"></i></a>
 
 
-                                <a class="btn btn-danger btn-sm" data-id="@experience.ExperienceID" asp-area="Admin" asp-controller="Experience" asp-action="Delete" asp-route-experienceId="@experience.ExperienceID"><i class="bx bx-minus-circle"></i></a>
+                                <a class="btn btn-danger btn-sm" data-id="@item.PortfolioID" asp-area="Admin" asp-controller="Portfolio" asp-action="Delete" asp-route-portfolioId="@item.PortfolioID"><i class="bx bx-minus-circle"></i></a>
 
                             </td>
 
                         </tr>
-                    } *@
+                    }
                 </tbody>
             </table>
         </div>
@@ -77,5 +73,5 @@
 </div>
 
 @section Scripts{
-    <script src="~/js/experienceIndex.js" type="application/ecmascript"></script>
+    <script src="~/js/portfolioIndex.js" type="application/ecmascript"></script>
 }

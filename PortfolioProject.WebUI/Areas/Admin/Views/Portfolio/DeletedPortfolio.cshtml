@@ -1,0 +1,71 @@
+﻿@model List<PortfolioDto>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Portfolyo Yönetimi /</span> Portfolyo
+    </h4>
+
+
+    <div class="card">
+        <div class="table-responsive text-nowrap m-5">
+
+            <table class="table table-bordered" id="portfoliosTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Link</th>
+                        <th>Oluşturan</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Link</th>
+                        <th>Oluşturan</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr name="@item.PortfolioID">
+                            <td>@item.Name</td>
+                            @if (@item.Content.Length < 30)
+                            {
+                                <td>@item.Content</td>
+                            }
+                            else
+                            {
+                                <td>@item.Content.Substring(0,30)...</td>
+                            }
+                            <td>@item.ProjectURL</td>
+                            <td>@item.CreatedBy</td>
+                            <td>@(item.IsDeleted ? "Aktif Değil" : "Aktif")</td>
+
+                            <td>
+
+                                <a class="btn btn-warning btn-sm" data-id="@item.PortfolioID" asp-area="Admin" asp-controller="Portfolio" asp-action="UndoDelete" asp-route-portfolioId="@item.PortfolioID"><i class='bx bx-undo'></i></a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+@section Scripts{
+    <script src="~/js/portfolioIndex.js" type="application/ecmascript"></script>
+}

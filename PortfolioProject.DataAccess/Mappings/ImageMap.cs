@@ -1,22 +1,17 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PortfolioProject.Entity.Entities;
 
 namespace PortfolioProject.DataAccess.Mappings
 {
-	public class ImageMap : IEntityTypeConfiguration<Image>
+    public class ImageMap : IEntityTypeConfiguration<Image>
 	{
 		public void Configure(EntityTypeBuilder<Image> builder)
 		{
 			builder.HasData(new Image
 			{
 				ImageID = Guid.Parse("F71F4B9A-AA60-461D-B398-DE31001BF214"),
-				FileName = "images/testimage",
+				FileName = "images/defaultPortfolio.jpg",
 				FileType = "jpg",
 				CreatedBy = "Admin Test",
 				CreatedDate = DateTime.Now,

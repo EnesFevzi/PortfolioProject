@@ -9,6 +9,8 @@ using PortfolioProject.Service.Helpers.Images.Abstract;
 using PortfolioProject.Service.Service.Abstract;
 using System.Security.Claims;
 
+
+
 namespace PortfolioProject.Service.Service.Concrete
 {
     public class PortfolioService : IPortfolioService
@@ -32,17 +34,19 @@ namespace PortfolioProject.Service.Service.Concrete
         {
             var userID = _user.GetLoggedInUserId();
             var userEmail = _user.GetLoggedInEmail();
+
             var imageUpload = await _imageHelper.Upload(portfolioAddDto.Name, portfolioAddDto.Photo, ImageType.Project);
             Image image = new(imageUpload.FullName, portfolioAddDto.Photo.ContentType, userEmail);
             await _unıtOfWork.GetRepository<Image>().AddAsync(image);
-
 
             var portfolio = new Portfolio(portfolioAddDto.Name, portfolioAddDto.ProjectURL, portfolioAddDto.Content, image.ImageID, userID, userEmail);
             await _unıtOfWork.GetRepository<Portfolio>().AddAsync(portfolio);
             await _unıtOfWork.SaveAsync();
 
+
+
         }
-        public  async Task<List<PortfolioDto>> GetAllPortfoliosAsync()
+        public async Task<List<PortfolioDto>> GetAllPortfoliosAsync()
         {
             var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync();
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
@@ -51,14 +55,14 @@ namespace PortfolioProject.Service.Service.Concrete
 
         public async Task<List<PortfolioDto>> GetAllPortfoliosDeletedAsync()
         {
-            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x=>x.IsDeleted);
+            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => x.IsDeleted);
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
-            
+
             return map;
         }
         public async Task<List<PortfolioDto>> GetAllPortfoliosWithImageDeletedAsync()
         {
-            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => x.IsDeleted,x=>x.Image);
+            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => x.IsDeleted, x => x.Image);
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
 
             return map;
@@ -66,7 +70,7 @@ namespace PortfolioProject.Service.Service.Concrete
 
         public async Task<List<PortfolioDto>> GetAllPortfoliosNonDeletedAsync()
         {
-            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x =>!x.IsDeleted);
+            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => !x.IsDeleted);
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
 
             return map;
@@ -74,7 +78,7 @@ namespace PortfolioProject.Service.Service.Concrete
 
         public async Task<List<PortfolioDto>> GetAllPortfoliosWithImageNonDeletedAsync()
         {
-            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => !x.IsDeleted,x=>x.Image);
+            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => !x.IsDeleted, x => x.Image);
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
 
             return map;
@@ -88,7 +92,7 @@ namespace PortfolioProject.Service.Service.Concrete
             return map;
         }
 
-        public async  Task<string> SafeDeletePortfolioAsync(Guid PortfolioID)
+        public async Task<string> SafeDeletePortfolioAsync(Guid PortfolioID)
         {
             var userEmail = _user.GetLoggedInEmail();
             var portfolio = await _unıtOfWork.GetRepository<Portfolio>().GetByGuidAsync(PortfolioID);

@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using PortfolioProject.Dto.DTO_s.Portfolios;
 using PortfolioProject.Entity.Entities;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,27 @@ namespace PortfolioProject.Service.FluentValidations
                 .MaximumLength(150)
                 .WithName("Başlık");
 
-            RuleFor(x => x.ImageID)
+            RuleFor(x => x.Content)
+               .NotEmpty()
+               .NotNull()
+               .MinimumLength(3)
+               .MaximumLength(150)
+               .WithName("Başlık");
+
+            RuleFor(x => x.ProjectURL)
+              .NotEmpty()
+              .NotNull()
+              .WithName("Proje Linki");
+
+
+        }
+    }
+    public class PortfolioAddValidator : AbstractValidator<PortfolioAddDto>
+    {
+        public PortfolioAddValidator()
+        {
+
+            RuleFor(x => x.Photo)
                 .NotEmpty()
                 .WithName("Resim dosyası");
 

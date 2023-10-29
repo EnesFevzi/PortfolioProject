@@ -7,26 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="AutoMapper\" />
-    <Folder Include="Describers\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="FluentValidations\" />
-    <Folder Include="Models\" />
-    <Folder Include="Service\Abstract\" />
-    <Folder Include="Service\Concrete\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.24" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PortfolioProject.DataAccess\PortfolioProject.DataAccess.csproj" />
     <ProjectReference Include="..\PortfolioProject.Dto\PortfolioProject.Dto.csproj" />
     <ProjectReference Include="..\PortfolioProject.Entity\PortfolioProject.Entity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,88 @@
+﻿<ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li class="menu-item">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="menu-link">
+            <i class='menu-icon bx bxs-dashboard'></i>
+            <div data-i18n="Analytics">Gösterge Paneli</div>
+        </a>
+    </li>
+    <li class="menu-item">
+        <a asp-area="Admin" asp-controller="Article" asp-action="Index" class="menu-link">
+            <i class='menu-icon bx bx-paper-plane'></i>
+            <div data-i18n="Analytics">Makale Yönetimi</div>
+        </a>
+    </li>
+    <li class="menu-item">
+        <a asp-area="Admin" asp-controller="Category" asp-action="Index" class="menu-link">
+            <i class='menu-icon bx bx-category'></i>
+            <div data-i18n="Analytics">Kategori Yönetimi</div>
+        </a>
+    </li>
+    @*     <li class="menu-item">
+    <a asp-area="Admin" asp-controller="SocialMedia" asp-action="Index" class="menu-link">
+    <i class='menu-icon bx bx-cube-alt'></i>
+    <div data-i18n="Analytics">Medya Yönetimi</div>
+    </a>
+    </li> *@
+    <li class="menu-item">
+        <a asp-area="Admin" asp-controller="User" asp-action="Index" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-user"></i>
+            <div data-i18n="Basic">Kullanıcılar</div>
+        </a>
+    </li>
+    <li class="menu-item">
+        <a asp-area="Admin" asp-controller="Role" asp-action="Index" class="menu-link">
+            <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
+            <div data-i18n="Basic">Role</div>
+        </a>
+    </li>
+    @*  <li class="menu-item">
+    <a asp-area="Admin" asp-controller="Smpt" asp-action="Index" class="menu-link">
+    <i class="menu-icon tf-icons bx bx-cog"></i>
+    <div data-i18n="Tables">Smtp Ayarları</div>
+    </a>
+    </li> *@
+    @*     <li class="menu-item">
+    <a asp-area="Admin" asp-controller="Article" asp-action="DeletedArticle" class="menu-link">
+    <i class="menu-icon tf-icons bx bxl-blogger"></i>
+    <div data-i18n="Account">Makale</div>
+    </a>
+    </li>
+    <li class="menu-item">
+    <a asp-area="Admin" asp-controller="Category" asp-action="DeletedCategory" class="menu-link">
+    <i class="menu-icon tf-icons bx bx-category"></i>
+    <div data-i18n="Notifications">Kategori</div>
+    </a>
+    </li>
+    <li class="menu-item">
+    <a asp-area="Admin" asp-controller="SocialMedia" asp-action="DeletedMedia" class="menu-link">
+    <i class="menu-icon tf-icons bx bxl-medium-old"></i>
+    <div data-i18n="Connections">Medya</div>
+    </a>
+    </li> *@
+    <li class="menu-header small text-uppercase"><span class="menu-header-text">ÇÖP KUTUSU</span></li>
+    <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <i class="menu-icon tf-icons bx bx-trash"></i>
+            <div data-i18n="Account Settings">Silinmiş Öğeler</div>
+        </a>
+        <ul class="menu-sub">
+            <li class="menu-item">
+                <a asp-area="Admin" asp-controller="Article" asp-action="DeletedArticle" class="menu-link">
+                    <div data-i18n="Account">Makale</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a asp-area="Admin" asp-controller="Category" asp-action="DeletedCategory" class="menu-link">
+                    <div data-i18n="Notifications">Kategori</div>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a asp-area="Admin" asp-controller="SocialMedia" asp-action="DeletedMedia" class="menu-link">
+                    <div data-i18n="Connections">Medya</div>
+                </a>
+            </li>
+        </ul>
+    </li>
+
+</ul>

@@ -20,11 +20,13 @@ namespace PortfolioProject.Entity.Entities
             FileType = fileType;
             CreatedBy = createdBy;
         }
+		public Guid ImageID { get; set; }
 
-        public string FileName { get; set; }
+		public string FileName { get; set; }
         public string FileType { get; set; }
 
        
         public ICollection<AppUser> Users { get; set; }
+        public ICollection<About> Abouts { get; set; }
     }
 }

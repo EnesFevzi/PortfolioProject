@@ -1,0 +1,66 @@
+﻿@model List<SkillDto>
+@* <section id="profiles" class="profiles">
+    <div class="profiles-details">
+        <div class="section-heading text-center">
+            <h2>profiles</h2>
+        </div>
+        <div class="container">
+            <div class="profiles-content">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-3 border">
+                            <div class="single-profile">
+                                <div class="profile-txt">
+                                    <a href=""><i class=""></i></a>
+                                    <div class="profile-icon-name">@item.Title</div>
+                                </div>
+                                <div class="single-profile-overlay">
+                                    <div class="profile-txt">
+                                        <a href=""><i class=""></i></a>
+                                        <div class="profile-icon-name">@item.Title</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    }
+
+                </div>
+                 <div class="profile-border"></div>
+            </div>
+        </div>
+    </div>
+
+</section> *@
+
+<section id="skills" class="skills">
+    <div class="skill-content">
+        <div class="section-heading text-center">
+            <h2>YETENEKLER</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-3">
+                        <div class="single-skill-content">
+                            <div class="barWrapper">
+                                <span class="progressText">@item.Title</span>
+                                <div class="single-progress-txt">
+                                    <div class="progress">
+                                        <div class="progress-bar" style="width: 100%" role="progressbar" aria-valuenow="75" aria-valuemin="10" aria-valuemax="100">
+                                        </div>
+                                    </div>
+                                   @*  <h3>85%</h3> *@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div><!-- /.row -->
+        </div>	<!-- /.container -->
+    </div><!-- /.skill-content-->
+
+</section><!--/.skills-->

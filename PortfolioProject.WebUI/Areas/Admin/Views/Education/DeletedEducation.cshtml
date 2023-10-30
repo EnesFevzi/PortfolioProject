@@ -1,0 +1,71 @@
+﻿@model List<EducationDto>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Eğitim Yönetimi /</span> Eğitimler
+    </h4>
+    <div class="card">
+        <div class="table-responsive text-nowrap m-5">
+
+            <table class="table table-bordered" id="educationsTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Başlangıç Tarihi</th>
+                        <th>Bitiş Tarihi</th>
+                        <th>Oluşturan</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Başlangıç Tarihi</th>
+                        <th>Bitiş Tarihi</th>
+                        <th>Oluşturan</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var education in Model)
+                    {
+                        <tr name="@education.EducationID">
+                            <td>@education.Name</td>
+                            @if (@education.Content.Length < 30)
+                            {
+                                <td>@education.Content</td>
+                            }
+                            else
+                            {
+                                <td>@education.Content.Substring(0,30)...</td>
+                            }
+
+                            <td>@education.StartTime.ToShortDateString()</td>
+                            <td>@education.EndTime.ToShortDateString()</td>
+                            <td>@education.CreatedBy</td>
+                            <td>@(education.IsDeleted ? "Aktif Değil" : "Aktif")</td>
+
+                            <td>
+                                <a class="btn btn-warning btn-sm" data-id="@education.EducationID" asp-area="Admin" asp-controller="Education" asp-action="UndoDelete" asp-route-educationId="@education.EducationID"><i class='bx bx-undo'></i></a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+</div>
+@section Scripts{
+    <script src="~/js/educationIndex.js" type="application/ecmascript"></script>
+}

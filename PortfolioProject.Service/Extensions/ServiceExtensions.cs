@@ -1,4 +1,5 @@
-﻿using FluentValidation.AspNetCore;
+﻿using EducationProject.Service.Service.Abstract;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using PortfolioProject.Service.FluentValidations;
@@ -20,6 +21,7 @@ namespace PortfolioProject.Service.Extensions
 			services.AddScoped<IExperienceService, ExperienceService>();
 			services.AddScoped<ISkillService, SkillService>();
 			services.AddScoped<IPortfolioService, PortfolioService>();
+			services.AddScoped<IEducationService, EducationService>();
 		
 			services.AddAutoMapper(assembly);
 

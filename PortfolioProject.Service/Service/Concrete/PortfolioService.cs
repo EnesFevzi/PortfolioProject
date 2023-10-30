@@ -16,9 +16,10 @@ namespace PortfolioProject.Service.Service.Concrete
     public class PortfolioService : IPortfolioService
     {
         private readonly IUnıtOfWork _unıtOfWork;
+        private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
-        private readonly IMapper _mapper;
+
         private readonly IImageHelper _imageHelper;
 
         public PortfolioService(IUnıtOfWork unıtOfWork, IHttpContextAccessor httpContextAccessor, IMapper mapper, IImageHelper imageHelper)
@@ -98,7 +99,7 @@ namespace PortfolioProject.Service.Service.Concrete
 
         public async Task<PortfolioDto> GetPortfolioWithUserNonDeletedAsync(Guid PortfolioID)
         {
-            var portfolio = await _unıtOfWork.GetRepository<Portfolio>().GetAsync(x => !x.IsDeleted && x.PortfolioID == PortfolioID);
+            var portfolio = await _unıtOfWork.GetRepository<Portfolio>().GetAsync(x => !x.IsDeleted && x.PortfolioID == PortfolioID,x=>x.Image);
             var map = _mapper.Map<PortfolioDto>(portfolio);
             return map;
         }
@@ -141,15 +142,9 @@ namespace PortfolioProject.Service.Service.Concrete
                 portfolioUpdateDto.ImageID = image.ImageID;
 
             }
-            else
-            {
-                portfolioUpdateDto.ImageID = porfolio.ImageID;
-            }
-
-            _mapper.Map(portfolioUpdateDto, porfolio);
+            //_mapper.Map(portfolioUpdateDto, porfolio);
+            _mapper.Map<PortfolioUpdateDto>(porfolio);
             //porfolio.ImageID = portfolioUpdateDto.ImageID;
-            //porfolio.Name = portfolioUpdateDto.Name;
-            //porfolio.ProjectURL = portfolioUpdateDto.ProjectURL;
             porfolio.ModifiedDate = DateTime.Now;
             porfolio.ModifiedBy = userEmail;
 

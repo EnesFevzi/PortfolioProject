@@ -1,0 +1,41 @@
+﻿
+@model List<PortfolioDto>
+@* @model IPagedList<PortfolioDto> *@
+<section id="portfolio" class="portfolio">
+    <div class="portfolio-details">
+        <div class="section-heading text-center">
+            <h2>PORTFOLYO</h2>
+        </div>
+        <div class="container">
+            <div class="portfolio-content">
+                <div class="isotope">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-4">
+                                <div class="item">
+                                    <img src="~/images/@item.Image.FileName" alt="portfolio image" style=" height:14em; width:20em;" />
+                                    <div class="isotope-overlay">
+                                        <a href="@item.ProjectURL">
+                                            @item.Name
+                                        </a>
+                                    </div><!-- /.isotope-overlay -->
+                                </div><!-- /.item -->
+                            </div>
+
+                            <!-- /.col -->
+                        }
+
+                    </div><!-- /.row -->
+                </div><!--/.isotope-->
+            </div><!--/.gallery-content-->
+        </div><!--/.container-->
+    </div><!--/.portfolio-details-->
+    @* <div class="text-center">
+        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+    </div> *@
+
+</section><!--/.portfolio-->
+
+
+

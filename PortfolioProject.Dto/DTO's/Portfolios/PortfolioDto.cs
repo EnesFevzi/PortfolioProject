@@ -17,6 +17,7 @@ namespace PortfolioProject.Dto.DTO_s.Portfolios
         //public Guid ImageID { get; set; }
         public Image Image { get; set; }
         public string CreatedBy { get; set; }
+        public DateTime CreateDate { get; set; }
         public bool IsDeleted { get; set; }
     }
 }

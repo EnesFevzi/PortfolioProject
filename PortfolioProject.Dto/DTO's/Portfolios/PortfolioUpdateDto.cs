@@ -12,7 +12,7 @@ namespace PortfolioProject.Dto.DTO_s.Portfolios
     {
         public Guid PortfolioID { get; set; }
         public string Name { get; set; }
-        public bool Status { get; set; }
+        public string Content { get; set; }
         public string ProjectURL { get; set; }
         public Guid? ImageID { get; set; }
         public Image Image { get; set; }

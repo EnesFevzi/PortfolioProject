@@ -9,7 +9,20 @@ namespace PortfolioProject.Entity.Entities
 {
 	public class Education : EntityBase
 	{
-		public Guid EducationID { get; set; }
+        public Education()
+        {
+            
+        }
+        public Education(string name, string content, Guid userId, string createdBy, DateTime startTime, DateTime endTime)
+        {
+            Name = name;
+            Content = content;
+            UserID = userId;
+            CreatedBy = createdBy;
+            StartTime = startTime;
+            EndTime = endTime;
+        }
+        public Guid EducationID { get; set; }
 		public DateTime StartTime { get; set; }
 		public DateTime EndTime { get; set; }
 		public string Name { get; set; }

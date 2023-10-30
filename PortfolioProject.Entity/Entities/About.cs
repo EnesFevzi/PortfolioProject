@@ -9,15 +9,35 @@ namespace PortfolioProject.Entity.Entities
 {
 	public class About : EntityBase
 	{
-		public Guid AboutID { get; set; }
+
+        public About()
+        {
+            
+        }
+        public About(string title,string description,int age,string mail,string adress,string linkedin, string github,Guid imageid,Guid userid,string createdBy)
+        {
+			Title = title;
+			Description = description;
+			Age = age;
+			Mail = mail;
+			Address = adress;
+			Linkedin = linkedin;
+			GitHub = github;
+			ImageID = imageid;
+			UserID = userid;
+			CreatedBy = createdBy;
+            
+        }
+        public Guid AboutID { get; set; }
 		public string Title { get; set; }
 		public string Description { get; set; }
 		public int Age { get; set; }
 		public string Mail { get; set; }
 		public string Address { get; set; }
-		public string Website { get; set; }
+		public string Linkedin { get; set; }
+		public string GitHub { get; set; }
 
-		public Guid ImageID { get; set; } = Guid.Parse("F71F4B9A-AA60-461D-B398-DE31001BF214");
+		public Guid? ImageID { get; set; }
 		public Image Image { get; set; }
 
 		public Guid UserID { get; set; }

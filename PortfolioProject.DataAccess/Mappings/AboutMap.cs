@@ -21,7 +21,8 @@ namespace PortfolioProject.DataAccess.Mappings
 				Age = 25,
 				Mail = "enesfevzicicekli@gmail.com",
 				Address = "Çorlu/TEKİRDAĞ",
-				Website = "enesfevzicicekli.com.tr",
+				Linkedin = "https://www.linkedin.com/in/enes-fevzi-cicekli",
+				GitHub = "https://github.com/EnesFevzi",
 				ImageID = Guid.Parse("F71F4B9A-AA60-461D-B398-DE31001BF214"),
 				UserID= Guid.Parse("CB94223B-CCB8-4F2F-93D7-0DF96A7F065C")
 

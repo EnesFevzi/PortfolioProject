@@ -1,0 +1,82 @@
+﻿@model List<AboutDto>
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">Hakkında Yönetimi /</span> Hakkında
+    </h4>
+
+
+    <div class="card">
+        <div class="table-responsive text-nowrap m-5">
+
+            <a class="btn btn-success mb-3" asp-area="Admin" asp-controller="About" asp-action="Add">
+                Hakkında Bilgisi Ekle <i class="bx bx-plus"></i>
+            </a>
+            <table class="table table-bordered table-responsive" id="aboutsTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Resim</th>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Yaş</th>
+                        <th>Mail</th>
+                        <th>Linkedin</th>
+                        <th>Github</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                        <th>Resim</th>
+                        <th>Başlık</th>
+                        <th>İçerik</th>
+                        <th>Yaş</th>
+                        <th>Mail</th>
+                        <th>Linkedin</th>
+                        <th>Github</th>
+                        <th>Durum</th>
+                        <th>İşlemler</th>
+                    </tr>
+                </tfoot>
+                <tbody class="table-border-bottom-0">
+                    @foreach (var item in Model)
+                    {
+                        <tr name="@item.AboutID">
+                            <td> <img style="height:3em; width:3em;" class="mb-3" src="~/images/@item.Image.FileName" alt="@item.Title" /></td>
+                            <td>@item.Title</td>
+                            @if (@item.Description.Length < 30)
+                            {
+                                <td>@item.Description</td>
+                            }
+                            else
+                            {
+                                <td>@item.Description.Substring(0,30)...</td>
+                            }
+                            <td>@item.Age</td>
+                            <td>@item.Mail</td>
+                            <td>@item.Linkedin</td>
+                            <td>@item.GitHub</td>
+                            <td>@(item.IsDeleted ? "Aktif Değil" : "Aktif")</td>
+
+                            <td>
+
+                                <a class="btn btn-primary btn-sm" asp-area="Admin" asp-controller="About" asp-action="Update" asp-route-aboutId="@item.AboutID"><i class="bx bxs-edit"></i></a>
+
+                                <a class="btn btn-danger btn-sm"  asp-area="Admin" asp-controller="About" asp-action="Delete" asp-route-aboutId="@item.AboutID"><i class="bx bx-minus-circle"></i></a>
+
+                            </td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/aboutIndex.js" type="application/ecmascript"></script>
+}

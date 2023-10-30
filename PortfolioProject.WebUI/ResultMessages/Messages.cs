@@ -78,6 +78,25 @@
                 return $"{portfolioName} başlıklı portfolyo bilgisi başarıyla geri alınmıştır.";
             }
         }
+        public static class About
+        {
+            public static string Add(string aboutName)
+            {
+                return $"{aboutName} başlıklı hakkında bilgisi başarıyla eklenmiştir.";
+            }
+            public static string Update(string aboutName)
+            {
+                return $"{aboutName} başlıklı hakkında bilgisi başarıyla güncellenmiştir.";
+            }
+            public static string Delete(string aboutName)
+            {
+                return $"{aboutName} başlıklı hakkında bilgisi başarıyla silinmiştir.";
+            }
+            public static string UndoDelete(string aboutName)
+            {
+                return $"{aboutName} başlıklı hakkında bilgisi başarıyla geri alınmıştır.";
+            }
+        }
         public static class User
         {
             public static string Add(string userName)

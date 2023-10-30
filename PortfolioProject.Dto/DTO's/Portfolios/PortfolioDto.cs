@@ -10,7 +10,7 @@ namespace PortfolioProject.Dto.DTO_s.Portfolios
 {
     public class PortfolioDto
     {
-        public Guid PortfolioID { get; set; }
+       public Guid PortfolioID { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
         public string ProjectURL { get; set; }

@@ -20,8 +20,8 @@ namespace PortfolioProject.DataAccess.Mappings
 			new Image
 			{
 				ImageID = Guid.Parse("D16A6EC7-8C50-4AB0-89A5-02B9A551F0FA"),
-				FileName = "images/vstest",
-				FileType = "png",
+				FileName = "user-images/default.jpg",
+				FileType = "image/png",
 				CreatedBy = "Admin Test",
 				CreatedDate = DateTime.Now,
 				IsDeleted = false

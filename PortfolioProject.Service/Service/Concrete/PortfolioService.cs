@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using PortfolioProject.DataAccess.UnıtOfWorks.Abstract;
+using PortfolioProject.Dto.DTO_s.Abouts;
 using PortfolioProject.Dto.DTO_s.Portfolios;
 using PortfolioProject.Entity.Entities;
 using PortfolioProject.Entity.Enums;
@@ -43,8 +44,6 @@ namespace PortfolioProject.Service.Service.Concrete
             var portfolio = new Portfolio(portfolioAddDto.Name, portfolioAddDto.ProjectURL, portfolioAddDto.Content, image.ImageID, userID, userEmail);
             await _unıtOfWork.GetRepository<Portfolio>().AddAsync(portfolio);
             await _unıtOfWork.SaveAsync();
-
-
 
         }
 
@@ -142,9 +141,17 @@ namespace PortfolioProject.Service.Service.Concrete
                 portfolioUpdateDto.ImageID = image.ImageID;
 
             }
-            //_mapper.Map(portfolioUpdateDto, porfolio);
-            _mapper.Map<PortfolioUpdateDto>(porfolio);
-            //porfolio.ImageID = portfolioUpdateDto.ImageID;
+            else
+            {
+                if (porfolio.Image != null)
+                {
+                    portfolioUpdateDto.ImageID = porfolio.ImageID;
+                    portfolioUpdateDto.Image = porfolio.Image;
+                }
+
+            }
+            _mapper.Map(portfolioUpdateDto, porfolio);
+           
             porfolio.ModifiedDate = DateTime.Now;
             porfolio.ModifiedBy = userEmail;
 

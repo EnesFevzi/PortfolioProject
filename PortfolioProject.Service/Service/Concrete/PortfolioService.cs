@@ -46,6 +46,19 @@ namespace PortfolioProject.Service.Service.Concrete
 
 
         }
+
+
+        public async Task CreatePortfoliWithoutImageAsync(PortfolioAddDto portfolioAddDto)
+        {
+            var userID = _user.GetLoggedInUserId();
+            var userEmail = _user.GetLoggedInEmail();
+
+            var image = Guid.Parse("f71f4b9a-aa60-461d-b398-de31001bf214");
+
+            var portfolio = new Portfolio(portfolioAddDto.Name, portfolioAddDto.ProjectURL, portfolioAddDto.Content, image, userID, userEmail);
+            await _unıtOfWork.GetRepository<Portfolio>().AddAsync(portfolio);
+            await _unıtOfWork.SaveAsync();
+        }
         public async Task<List<PortfolioDto>> GetAllPortfoliosAsync()
         {
             var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync();
@@ -64,15 +77,13 @@ namespace PortfolioProject.Service.Service.Concrete
         {
             var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => x.IsDeleted, x => x.Image);
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
-
             return map;
         }
 
         public async Task<List<PortfolioDto>> GetAllPortfoliosNonDeletedAsync()
         {
-            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => !x.IsDeleted);
+            var portfolios = await _unıtOfWork.GetRepository<Portfolio>().GetAllAsync(x => !x.IsDeleted,x => x.Image);
             var map = _mapper.Map<List<PortfolioDto>>(portfolios);
-
             return map;
         }
 
@@ -147,5 +158,7 @@ namespace PortfolioProject.Service.Service.Concrete
 
             return porfolio.Name;
         }
+
+        
     }
 }

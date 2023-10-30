@@ -16,6 +16,7 @@ namespace PortfolioProject.Service.Service.Abstract
         Task<List<PortfolioDto>> GetAllPortfoliosWithImageDeletedAsync();
         Task<PortfolioDto> GetPortfolioWithUserNonDeletedAsync(Guid PortfolioID);
         Task CreatePortfolioAsync(PortfolioAddDto PortfolioAddDto);
+        Task CreatePortfoliWithoutImageAsync(PortfolioAddDto PortfolioAddDto);
         Task<string> UpdatePortfolioAsync(PortfolioUpdateDto PortfolioUpdateDto);
         Task<string> SafeDeletePortfolioAsync(Guid PortfolioID);
         Task<string> UndoDeletePortfolioAsync(Guid PortfolioID);

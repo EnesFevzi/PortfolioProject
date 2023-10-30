@@ -11,8 +11,8 @@ namespace PortfolioProject.DataAccess.Mappings
 			builder.HasData(new Image
 			{
 				ImageID = Guid.Parse("F71F4B9A-AA60-461D-B398-DE31001BF214"),
-				FileName = "images/defaultPortfolio.jpg",
-				FileType = "jpg",
+				FileName = "project-images/defaultPortfolio.jpg",
+				FileType = "image/jpeg",
 				CreatedBy = "Admin Test",
 				CreatedDate = DateTime.Now,
 				IsDeleted = false

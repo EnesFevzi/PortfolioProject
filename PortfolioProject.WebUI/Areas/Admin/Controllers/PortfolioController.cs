@@ -59,9 +59,13 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
                 result.AddToModelState(this.ModelState);
 
             }
-            else if (!result2.IsValid)
+            else if (portfolioAddDto.Photo == null)
             {
-                result.AddToModelState(this.ModelState);
+                //result.AddToModelState(this.ModelState);
+                await _portfolioService.CreatePortfoliWithoutImageAsync(portfolioAddDto);
+                _toastNotification.AddSuccessToastMessage(Messages.Portfolio.Add(portfolioAddDto.Name), new ToastrOptions { Title = "İşlem Başarılı" });
+                return RedirectToAction("Index", "Portfolio", new { Area = "Admin" });
+
             }
             else
             {

@@ -12,6 +12,5 @@ namespace PortfolioProject.Dto.DTO_s.Users
         public string Password { get; set; }
         public bool RememberMe { get; set; }
 
-		public string RecaptchaToken { get; set; }
 	}
 }

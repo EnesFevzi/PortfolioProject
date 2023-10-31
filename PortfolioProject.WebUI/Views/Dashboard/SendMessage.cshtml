@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+
+@await Html.PartialAsync("/Views/_PortfolioLayoutPartial/_PartialHeader.cshtml")
+
+<body>
+
+    @await Html.PartialAsync("/Views/_PortfolioLayoutPartial/_PartialNavbar.cshtml")
+
+    @await Html.PartialAsync("/Views/_PortfolioLayoutPartial/_PartialBrand.cshtml")
+
+    @await Component.InvokeAsync("DashboardAbout")
+
+    <!--about end -->
+    <!--education start -->
+    @await Component.InvokeAsync("DashboardEducation")
+    <!--education end -->
+    <!--skills start -->
+    @await Component.InvokeAsync("DashboardSkill")
+    <!--skills end -->
+    <!--experience start -->
+    @await Component.InvokeAsync("DashboardExperience")
+    <!--experience end -->
+    <!--portfolio start -->
+    <div id="portfolio-content">
+        @await Component.InvokeAsync("DashboardPortfolio")
+        @* @await Html.PartialAsync("/Views/Dashboard/LoadPortfolio.cshtml") *@
+    </div>
+    <!--portfolio end -->
+    <!--clients start -->
+    <!--clients end -->
+    <!--contact start -->
+    @await Html.PartialAsync("SendMail2")
+
+
+    <!--contact end -->
+    @await Html.PartialAsync("/Views/_PortfolioLayoutPartial/_PartialFooter.cshtml")
+
+    @await Html.PartialAsync("/Views/_PortfolioLayoutPartial/_PartialScript.cshtml")
+
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+﻿@model List<AboutDto>
+<section id="about" class="about">
+    <div class="section-heading text-center">
+        <h2>HAKKINDA</h2>
+    </div>
+
+    @*     <div class="section pt-4 px-3 px-lg-4" id="about">
+    <div class="container-narrow">
+    @foreach (var item in Model)
+    {
+    <div class="row">
+    <div class="col-md-6">
+    <h2 class="h4 my-2">@item.Title</h2>
+    <p>@item.Description</p>
+    <div class="row mt-3">
+    <div class="col-sm-2">
+    <div class="pb-1">Yaş:</div>
+    </div>
+    <div class="col-sm-10">
+    <div class="pb-1 fw-bolder">@item.Age</div>
+    </div>
+    <div class="col-sm-2">
+    <div class="pb-1">Mail:</div>
+    </div>
+    <div class="col-sm-10">
+    <div class="pb-1 fw-bolder">@item.Mail</div>
+    </div>
+    <div class="col-sm-2">
+    <div class="pb-1">Adres:</div>
+    </div>
+    <div class="col-sm-10">
+    <div class="pb-1 fw-bolder">@item.Address</div>
+    </div>
+    </div>
+    </div>
+    <div class="col-md-5 offset-md-1" data-aos="fade-left" data-aos-delay="100"><img class="avatar img-fluid mt-2" src="~/images/@item.Image.FileName" width="400" height="400" alt="Walter Patterson" /></div>
+    </div>
+    }
+    </div>
+    </div> *@
+    <div class="container">
+        <div class="about-content" >
+            <div class="row">
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-sm-6">
+                        <div class="single-about-txt" >
+                            <h3>
+                                @item.Title
+                            </h3>
+                            <p>
+                                @item.Description
+                            </p>
+                            <div class="row" style="justify-content:flex-end">
+                                <div class="col-sm-4">
+                                    <div class="single-about-add-info">
+                                        <h3 style="font-family:Bahnschrift">Yaş</h3>
+                                        <p style="font-family: Bahnschrift; font-weight: bold;">@item.Age</p>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="single-about-add-info">
+                                        <h3 style="font-family:Bahnschrift">E-Mail</h3>
+                                        <p style="font-family: Bahnschrift; font-weight: bold;">@item.Mail</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-1 col-sm-4">
+                        <div class="single-about-img" >
+                            <img src="~/images/@item.Image.FileName" alt="profile_image">
+                            <div class="about-list-icon">
+                                <ul>
+                                    <li>
+                                        <a href="@item.Linkedin">
+                                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@item.GitHub">
+                                            <i class="fa fa-github" aria-hidden="true"></i>
+                                        </a>
+                                    </li><!-- / li -->
+                                </ul><!-- / ul -->
+                            </div><!-- /.about-list-icon -->
+
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section><!--/.about-->

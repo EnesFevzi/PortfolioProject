@@ -23,6 +23,8 @@ namespace PortfolioProject.Service.Service.Concrete
 
         private readonly IImageHelper _imageHelper;
 
+        private const string DefaultPortfolioImage = "project-images/defaultPortfolio.jpg";
+
         public PortfolioService(IUnıtOfWork unıtOfWork, IHttpContextAccessor httpContextAccessor, IMapper mapper, IImageHelper imageHelper)
         {
             _unıtOfWork = unıtOfWork;
@@ -133,8 +135,10 @@ namespace PortfolioProject.Service.Service.Concrete
 
             if (portfolioUpdateDto.Photo != null)
             {
-                _imageHelper.Delete(porfolio.Image.FileName);
-
+                if (porfolio.Image.FileName != DefaultPortfolioImage)
+                {
+                    _imageHelper.Delete(porfolio.Image.FileName);
+                }
                 var imageUpload = await _imageHelper.Upload(portfolioUpdateDto.Name, portfolioUpdateDto.Photo, ImageType.Project);
                 Image image = new(imageUpload.FullName, portfolioUpdateDto.Photo.ContentType, userEmail);
                 await _unıtOfWork.GetRepository<Image>().AddAsync(image);

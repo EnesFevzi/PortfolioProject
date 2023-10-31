@@ -33,7 +33,7 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var portfolios = await _portfolioService.GetAllPortfoliosNonDeletedAsync();
+            var portfolios = await _portfolioService.GetAllPortfoliosWithImageNonDeletedAsync();
             return View(portfolios);
         }
         public async Task<IActionResult> DeletedPortfolio()

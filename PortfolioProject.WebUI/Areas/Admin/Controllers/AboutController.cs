@@ -8,6 +8,7 @@ using PortfolioProject.Dto.DTO_s.Abouts;
 using PortfolioProject.Dto.DTO_s.Portfolios;
 using PortfolioProject.Entity.Entities;
 using PortfolioProject.Service.Service.Abstract;
+using PortfolioProject.WebUI.Consts;
 using PortfolioProject.WebUI.ResultMessages;
 
 namespace PortfolioProject.WebUI.Areas.Admin.Controllers
@@ -30,22 +31,24 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             _validator = validator;
           
         }
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Index()
         {
             var abouts = await _aboutService.GetAllAboutsNonDeletedAsync();
             return View(abouts);
         }
+        [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> DeletedAbout()
         {
             var abouts = await _aboutService.GetAllAboutsDeletedAsync();
             return View(abouts);
         }
-
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Add()
         {
             return View();
         }
-
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         [HttpPost]
         public async Task<IActionResult> Add(AboutAddDto aboutAddDto)
         {
@@ -73,14 +76,14 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
-
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Update(Guid aboutId)
         {
             var portfolio = await _aboutService.GetAboutNonDeletedAsync(aboutId);
             var articleUpdateDto = _mapper.Map<AboutUpdateDto>(portfolio);
             return View(articleUpdateDto);
         }
-
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         [HttpPost]
         public async Task<IActionResult> Update(AboutUpdateDto aboutUpdateDto)
         {
@@ -100,13 +103,14 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             return View(aboutUpdateDto);
 
         }
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> Delete(Guid aboutId)
         {
             var title = await _aboutService.SafeDeleteAboutAsync(aboutId);
             _toastNotification.AddSuccessToastMessage(Messages.About.Delete(title), new ToastrOptions() { Title = "İşlem Başarılı" });
             return RedirectToAction("Index", "About", new { Area = "Admin" });
         }
-
+        [Authorize(Roles = $"{RoleConsts.Superadmin}")]
         public async Task<IActionResult> UndoDelete(Guid aboutId)
         {
             var title = await _aboutService.UndoDeleteAboutAsync(aboutId);

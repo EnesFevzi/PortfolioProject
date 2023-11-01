@@ -11,7 +11,8 @@ namespace PortfolioProject.DataAccess.UnıtOfWorks.Abstract
 	public interface IUnıtOfWork : IAsyncDisposable
 	{
 		IRepository<T> GetRepository<T>() where T : class, IEntityBase, new();
-		Task<int> SaveAsync();
+      
+        Task<int> SaveAsync();
 		int Save();
 	}
 }

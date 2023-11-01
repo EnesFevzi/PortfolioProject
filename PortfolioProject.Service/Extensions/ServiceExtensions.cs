@@ -24,6 +24,8 @@ namespace PortfolioProject.Service.Extensions
 			services.AddScoped<IEducationService, EducationService>();
 			services.AddScoped<IAboutService, AboutService>();
 			services.AddScoped<ISendMailService, SendMailService>();
+			services.AddScoped<IDashboardService, DashboardService>();
+			services.AddScoped<IUserService, UserService>();
 		
 			services.AddAutoMapper(assembly);
 

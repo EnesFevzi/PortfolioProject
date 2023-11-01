@@ -8,6 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace PortfolioProject.DataAccess.Repositories.Concrete
 {
@@ -33,7 +34,20 @@ namespace PortfolioProject.DataAccess.Repositories.Concrete
 
 			return await query.ToListAsync();
 		}
-		public async Task AddAsync(T entity)
+        public async Task<List<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = Table;
+            if (includeProperties.Any())
+            {
+                foreach (var item in includeProperties)
+                {
+                    query = query.Include(item);
+                }
+            }
+
+            return await query.ToListAsync();
+        }
+        public async Task AddAsync(T entity)
 		{
 			await Table.AddAsync(entity);
 		}
@@ -81,5 +95,7 @@ namespace PortfolioProject.DataAccess.Repositories.Concrete
 				return await Table.CountAsync(predicate);
 			return await Table.CountAsync();
 		}
-	}
+
+        
+    }
 }

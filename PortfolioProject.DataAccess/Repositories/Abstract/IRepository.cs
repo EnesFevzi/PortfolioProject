@@ -12,7 +12,8 @@ namespace PortfolioProject.DataAccess.Repositories.Abstract
 	{
 		Task AddAsync(T entity);
 		Task<List<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includeProperties);
-		Task<T> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
+        Task<List<T>> GetAllAsync(params Expression<Func<T, object>>[] includeProperties);
+        Task<T> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties);
 		Task<T> GetByGuidAsync(Guid id);
 		Task<T> GetByIDAsync(int id);
 		Task<T> UpdateAsync(T entity);

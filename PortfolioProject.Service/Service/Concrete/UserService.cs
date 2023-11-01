@@ -10,12 +10,7 @@ using PortfolioProject.Service.Extensions;
 using PortfolioProject.Service.Helpers.Images.Abstract;
 using PortfolioProject.Service.Models;
 using PortfolioProject.Service.Service.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace PortfolioProject.Service.Service.Concrete

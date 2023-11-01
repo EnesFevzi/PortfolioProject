@@ -2,15 +2,15 @@
 
 
 $(document).ready(function () {
-    var yearlyArticlesUrl = app.Urls.yearlyArticlesUrl;
-    var totalArticleCountUrl = app.Urls.totalArticleCountUrl;
-    var totalCategoryCountUrl = app.Urls.totalCategoryCountUrl;
+    var yearlyPortfoliosUrl = app.Urls.yearlyPortfoliosUrl;
+    var totalPortfolioCountUrl = app.Urls.totalPortfolioCountUrl;
+    var totalExperienceCountUrl = app.Urls.totalExperienceCountUrl;
     $.ajax({
         type: "GET",
-        url: totalArticleCountUrl,
+        url: totalPortfolioCountUrl,
         dataType: "json",
         success: function (data) {
-            $("h3#totalArticleCount").append(data);
+            $("h3#totalPortfolioCount").append(data);
         },
         error: function () {
             toastr.error("Makale Analizleri yüklenirken hata oluştu", "Hata");
@@ -27,13 +27,13 @@ $(document).ready(function () {
    
     $.ajax({
         type: "GET",
-        url: totalCategoryCountUrl,
+        url: totalExperienceCountUrl,
         dataType: "json",
         success: function (data) {
-            $("h3#totalCategoryCount").append(data);
+            $("h3#totalExperienceCount").append(data);
         },
         error: function () {
-            toastr.error("Makale Analizleri yüklenirken hata oluştu", "Hata");
+            toastr.error("Tecrübe Analizleri yüklenirken hata oluştu", "Hata");
         }
 
     });
@@ -41,7 +41,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: yearlyArticlesUrl,
+        url: yearlyPortfoliosUrl,
         dataType: "json",
         success: function (data) {
             var parsedData = JSON.parse(data);

@@ -1,38 +1,41 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using PortfolioProject.DataAccess.UnıtOfWorks.Abstract;
-using PortfolioProject.Service.Service.Abstract;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PortfolioProject.Service.Service.Concrete
 {
-    public class GenericService<TDto, TEntity> : IGenericService<TDto> where TDto : class where TEntity : class
+    public class GenericService<TEntity, TDto> where TEntity : class where TDto : class
     {
-        private readonly IUnıtOfWork _unıtOfWork;
+        private readonly IUnıtOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IHttpContextAccessor _httpContextAccessor;
         private readonly ClaimsPrincipal _user;
 
         public GenericService(IUnıtOfWork unıtOfWork, IMapper mapper, IHttpContextAccessor httpContextAccessor)
         {
-            _unıtOfWork = unıtOfWork;
+            _unitOfWork = unıtOfWork;
             _mapper = mapper;
             _httpContextAccessor = httpContextAccessor;
             _user = httpContextAccessor.HttpContext.User;
         }
 
-        public Task CreateAsync(TDto dto)
+        public async Task CreateAsync(TDto dto)
         {
+            //TEntity entity = _mapper.Map<TEntity>(dto);
+            //await _unitOfWork.GetRepository<TEntity>().AddAsync(entity);
+            //await _unitOfWork.SaveAsync();
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(Guid id)
+        public async Task DeleteAsync(Guid id)
         {
+            //var entity = await _unitOfWork.Repository<TEntity>().GetByIdAsync(id);
+            //if (entity != null)
+            //{
+            //    _unitOfWork.Repository<TEntity>().Delete(entity);
+            //    await _unitOfWork.SaveChangesAsync();
+            //}
             throw new NotImplementedException();
         }
 

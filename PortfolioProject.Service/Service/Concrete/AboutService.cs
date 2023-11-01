@@ -42,7 +42,9 @@ namespace PortfolioProject.Service.Service.Concrete
             var imageUpload = await _imageHelper.Upload(aboutAddDto.Title, aboutAddDto.Photo, ImageType.User);
             Image image = new(imageUpload.FullName, aboutAddDto.Photo.ContentType, userEmail);
             await _unıtOfWork.GetRepository<Image>().AddAsync(image);
+
             var portfolio = new About(aboutAddDto.Title, aboutAddDto.Description, aboutAddDto.Age, aboutAddDto.Mail, aboutAddDto.Address, aboutAddDto.Linkedin, aboutAddDto.GitHub ,image.ImageID, userID, userEmail);
+
             await _unıtOfWork.GetRepository<About>().AddAsync(portfolio);
             await _unıtOfWork.SaveAsync();
         }

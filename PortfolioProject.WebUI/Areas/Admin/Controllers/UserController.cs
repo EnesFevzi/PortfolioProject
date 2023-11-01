@@ -152,19 +152,18 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
         [Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
         public async Task<IActionResult> Profile(UserProfileDto userProfileDto)
         {
-
             if (ModelState.IsValid)
             {
                 var result = await _userService.UserProfileUpdateAsync(userProfileDto);
                 if (result)
                 {
                     _toastNotification.AddSuccessToastMessage("Profil güncelleme işlemi tamamlandı", new ToastrOptions { Title = "İşlem Başarılı" });
-                    return RedirectToAction("Index", "Home", new { Area = "Admin" });
+                    return RedirectToAction("Index", "Dashboard", new { Area = "Admin" });
                 }
                 else
                 {
                     var profile = await _userService.GetUserProfileAsync();
-                    _toastNotification.AddErrorToastMessage("Profil güncelleme işlemi tamamlanamadı", new ToastrOptions { Title = "İşlem Başarısız" });
+                    _toastNotification.AddErrorToastMessage("Profil güncelleme işlemi tamamlanamadı,Eksik Bilgiler Mevcut", new ToastrOptions { Title = "İşlem Başarısız" });
                     return View(profile);
                 }
             }

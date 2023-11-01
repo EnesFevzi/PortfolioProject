@@ -76,7 +76,7 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
-            return RedirectToAction("Index", "Home", new { Area = "" });
+            return RedirectToAction("Login", "Auth", new { Area = "Admin" });
         }
         [Authorize]
         [HttpGet]

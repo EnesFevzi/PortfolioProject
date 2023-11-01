@@ -1,6 +1,8 @@
 ﻿using EducationProject.Service.Service.Abstract;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using PortfolioProject.Service.FluentValidations;
 using PortfolioProject.Service.Helpers.Images.Abstract;
@@ -26,6 +28,8 @@ namespace PortfolioProject.Service.Extensions
 			services.AddScoped<ISendMailService, SendMailService>();
 			services.AddScoped<IDashboardService, DashboardService>();
 			services.AddScoped<IUserService, UserService>();
+			services.AddScoped<IRoleService, RoleService>();
+		
 		
 			services.AddAutoMapper(assembly);
 

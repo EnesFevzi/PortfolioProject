@@ -14,8 +14,8 @@ using PortfolioProject.WebUI.ResultMessages;
 namespace PortfolioProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
-    public class AboutController : Controller
+	[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+	public class AboutController : Controller
     {
         private readonly IAboutService _aboutService;
         private readonly IMapper _mapper;

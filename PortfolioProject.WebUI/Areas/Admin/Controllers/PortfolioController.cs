@@ -8,13 +8,14 @@ using PortfolioProject.Dto.DTO_s.Portfolios;
 using PortfolioProject.Entity.Entities;
 using PortfolioProject.Service.Service.Abstract;
 using PortfolioProject.Service.Service.Concrete;
+using PortfolioProject.WebUI.Consts;
 using PortfolioProject.WebUI.ResultMessages;
 
 namespace PortfolioProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
-    public class PortfolioController : Controller
+	
+	public class PortfolioController : Controller
     {
         private readonly IPortfolioService _portfolioService;
         private readonly IMapper _mapper;
@@ -30,24 +31,25 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             _validator = validator;
             _addvalidator = addvalidator;
         }
-
-        public async Task<IActionResult> Index()
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> Index()
         {
             var portfolios = await _portfolioService.GetAllPortfoliosWithImageNonDeletedAsync();
             return View(portfolios);
         }
-        public async Task<IActionResult> DeletedPortfolio()
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> DeletedPortfolio()
         {
             var articles = await _portfolioService.GetAllPortfoliosDeletedAsync();
             return View(articles);
         }
-
-        public async Task<IActionResult> Add()
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> Add()
         {
             return View();
         }
-
-        [HttpPost]
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		[HttpPost]
         public async Task<IActionResult> Add(PortfolioAddDto portfolioAddDto)
         {
             var map = _mapper.Map<Portfolio>(portfolioAddDto);
@@ -75,15 +77,16 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
-
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		[HttpGet]
         public async Task<IActionResult> Update(Guid portfolioId)
         {
             var portfolio = await _portfolioService.GetPortfolioWithUserNonDeletedAsync(portfolioId);
             var articleUpdateDto = _mapper.Map<PortfolioUpdateDto>(portfolio);
             return View(articleUpdateDto);
         }
-
-        [HttpPost]
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		[HttpPost]
         public async Task<IActionResult> Update(PortfolioUpdateDto portfolioUpdateDto)
         {
             var map = _mapper.Map<Portfolio>(portfolioUpdateDto);
@@ -102,14 +105,15 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             return View(portfolioUpdateDto);
 
         }
-        public async Task<IActionResult> Delete(Guid portfolioId)
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> Delete(Guid portfolioId)
         {
             var title = await _portfolioService.SafeDeletePortfolioAsync(portfolioId);
             _toastNotification.AddSuccessToastMessage(Messages.Portfolio.Delete(title), new ToastrOptions() { Title = "İşlem Başarılı" });
             return RedirectToAction("Index", "Portfolio", new { Area = "Admin" });
         }
-
-        public async Task<IActionResult> UndoDelete(Guid portfolioId)
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> UndoDelete(Guid portfolioId)
         {
             var title = await _portfolioService.UndoDeletePortfolioAsync(portfolioId);
             _toastNotification.AddSuccessToastMessage(Messages.Portfolio.UndoDelete(title), new ToastrOptions() { Title = "İşlem Başarılı" });

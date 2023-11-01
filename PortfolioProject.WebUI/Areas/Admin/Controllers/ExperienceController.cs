@@ -7,13 +7,14 @@ using NToastNotify;
 using PortfolioProject.Dto.DTO_s.Experiences;
 using PortfolioProject.Entity.Entities;
 using PortfolioProject.Service.Service.Abstract;
+using PortfolioProject.WebUI.Consts;
 using PortfolioProject.WebUI.ResultMessages;
 
 namespace PortfolioProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
-    public class ExperienceController : Controller
+	[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+	public class ExperienceController : Controller
     {
         private readonly IExperienceService _experienceService;
         private readonly IMapper _mapper;
@@ -27,26 +28,26 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             _mapper = mapper;
             _toastNotification = toastNotification;
             _validator = validator;
-        }   
-
-        public async Task< IActionResult> Index()
+        }
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task< IActionResult> Index()
         {
             var articles = await _experienceService.GetAllExperiencesWithUserNonDeletedAsync();
             return View(articles);
         }
-
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
 		public async Task<IActionResult> DeletedExperience()
 		{
 			var articles = await _experienceService.GetAllExperiencesDeletedAsync();
 			return View(articles);
 		}
-
-        public async Task<IActionResult> Add()
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> Add()
         {
             return View();
         }
-
-        [HttpPost]
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		[HttpPost]
         public async Task<IActionResult> Add(ExperienceAddDto experienceAddDto)
         {
             var map = _mapper.Map<Experience>(experienceAddDto);
@@ -68,15 +69,15 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             return View();
 
         }
-
-        public async Task<IActionResult> Update(Guid experienceId)
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> Update(Guid experienceId)
         {
             var experience = await _experienceService.GetExperienceWithUserNonDeletedAsync(experienceId);
             var articleUpdateDto = _mapper.Map<ExperienceUpdateDto>(experience);
             return View(articleUpdateDto);
         }
-
-        [HttpPost]
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		[HttpPost]
         public async Task<IActionResult> Update(ExperienceUpdateDto experienceUpdateDto)
         {
             var map = _mapper.Map<Experience>(experienceUpdateDto);
@@ -96,14 +97,15 @@ namespace PortfolioProject.WebUI.Areas.Admin.Controllers
             return View(experienceUpdateDto);
           
         }
-        public async Task<IActionResult> Delete(Guid experienceId)
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> Delete(Guid experienceId)
         {
             var title = await _experienceService.SafeDeleteExperienceAsync(experienceId);
             _toastNotification.AddSuccessToastMessage(Messages.Experience.Delete(title), new ToastrOptions() { Title = "İşlem Başarılı" });
             return RedirectToAction("Index", "Experience", new { Area = "Admin" });
         }
-
-        public async Task<IActionResult> UndoDelete(Guid experienceId)
+		[Authorize(Roles = $"{RoleConsts.Superadmin}, {RoleConsts.Admin}")]
+		public async Task<IActionResult> UndoDelete(Guid experienceId)
         {
             var title = await _experienceService.UndoDeleteExperienceAsync(experienceId);
             _toastNotification.AddSuccessToastMessage(Messages.Experience.UndoDelete(title), new ToastrOptions() { Title = "İşlem Başarılı" });

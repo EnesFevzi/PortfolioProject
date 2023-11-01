@@ -24,8 +24,8 @@ namespace PortfolioProject.Service.FluentValidations
                .NotEmpty()
                .NotNull()
                .MinimumLength(3)
-               .MaximumLength(150)
-               .WithName("Başlık");
+               .MaximumLength(500)
+               .WithName("İçerik");
 
             RuleFor(x => x.ProjectURL)
               .NotEmpty()

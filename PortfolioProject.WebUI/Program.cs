@@ -32,11 +32,13 @@ namespace PortfolioProject.WebUI
                 opt.Password.RequireNonAlphanumeric = false;
                 opt.Password.RequireLowercase = false;
                 opt.Password.RequireUppercase = false;
+                opt.User.RequireUniqueEmail = true;
+
             })
              .AddRoleManager<RoleManager<AppRole>>()
              .AddErrorDescriber<CustomIdentityErrorDescriber>()
              .AddEntityFrameworkStores<AppDbContext>()
-             .AddDefaultTokenProviders();
+            .AddTokenProvider<DataProtectorTokenProvider<AppUser>>(TokenOptions.DefaultProvider);
 
             builder.Services.ConfigureApplicationCookie(config =>
             {
@@ -48,6 +50,7 @@ namespace PortfolioProject.WebUI
                     HttpOnly = true,
                     SameSite = SameSiteMode.Strict,
                     SecurePolicy = CookieSecurePolicy.SameAsRequest //Always 
+
                 };
                 config.SlidingExpiration = true;
                 config.ExpireTimeSpan = TimeSpan.FromDays(7);

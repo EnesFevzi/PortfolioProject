@@ -200,7 +200,9 @@ namespace PortfolioProject.Service.Service.Concrete
             XDocument document = XDocument.Load(connection);
             var temperature = double.Parse(document.Descendants("temperature").ElementAt(0).Attribute("value").Value);
 
-            string condition = string.Empty;
+            int tempatur = (int)temperature;
+
+			string condition = string.Empty;
 
             if (temperature >= 30)
             {
@@ -222,8 +224,8 @@ namespace PortfolioProject.Service.Service.Concrete
             return new WeatherInfo
             {
                 Condition = condition,
-                Temperature = temperature
-            };
+                Temperature = tempatur
+			};
         }
     }
 }

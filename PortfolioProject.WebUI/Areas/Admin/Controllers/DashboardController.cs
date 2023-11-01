@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PortfolioProject.Service.Service.Abstract;
+using PortfolioProject.WebUI.Consts;
 
 namespace PortfolioProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class DashboardController : Controller
+	[Authorize(Roles = $"{RoleConsts.Superadmin}")]
+	public class DashboardController : Controller
     {
         private readonly IDashboardService _dashbordService;
 

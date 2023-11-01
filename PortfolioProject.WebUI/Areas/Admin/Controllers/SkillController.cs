@@ -7,13 +7,14 @@ using NToastNotify;
 using PortfolioProject.Dto.DTO_s.Skills;
 using PortfolioProject.Entity.Entities;
 using PortfolioProject.Service.Service.Abstract;
+using PortfolioProject.WebUI.Consts;
 using PortfolioProject.WebUI.ResultMessages;
 
 namespace PortfolioProject.WebUI.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize]
-    public class SkillController : Controller
+	[Authorize(Roles = $"{RoleConsts.Superadmin}")]
+	public class SkillController : Controller
     {
 
         private readonly ISkillService _skillService;

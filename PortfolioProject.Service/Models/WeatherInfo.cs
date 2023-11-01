@@ -9,6 +9,6 @@ namespace PortfolioProject.Service.Models
     public class WeatherInfo
     {
         public string Condition { get; set; }
-        public double Temperature { get; set; }
+        public int Temperature { get; set; }
     }
 }

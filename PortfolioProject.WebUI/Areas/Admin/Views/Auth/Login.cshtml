@@ -76,7 +76,7 @@
 					</div>
 
 					<div class="text-center p-t-90">
-						<a class="txt1" href="#">
+						<a class="txt1" asp-action="ForgetPassword" asp-controller="ResetPassword" asp-area=" ">
 							Şifremi Unuttum
 						</a>
 					</div>
@@ -108,7 +108,7 @@
 </body>
 </html>
 
-
+@await Component.InvokeAsync("NToastNotify")
 
 
 

@@ -10,5 +10,7 @@ namespace PortfolioProject.Service.Service.Abstract
 	public interface ISendMailService
 	{
 		Task<bool> SendMail(MailRequest mailRequest);
+
+		Task<bool> SendPasswordChange(string email, string scheme, string host);
 	}
 }

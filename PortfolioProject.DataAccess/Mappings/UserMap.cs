@@ -64,9 +64,26 @@ namespace PortfolioProject.DataAccess.Mappings
             };
 			superadmin.PasswordHash = CreatePasswordHash(superadmin, "123456");
 
-			builder.HasData(superadmin);
+            var admin = new AppUser
+            {
+                Id = Guid.Parse("B207B056-26AC-4BE9-B6A5-07EB8C9E8D76"),
+                UserName = "enssfvvzi@gmail.com",
+                NormalizedUserName = "ENSSFVVZI@GMAIL.COM",
+                Email = "enssfvvzi@gmail.com",
+                NormalizedEmail = "ENSSFVVZI@GMAIL.COM",
+                PhoneNumber = "+905439999988",
+                FirstName = "Admin",
+                LastName = "User",
+                PhoneNumberConfirmed = false,
+                EmailConfirmed = false,
+                SecurityStamp = Guid.NewGuid().ToString(),
+                ImageID = Guid.Parse("D16A6EC7-8C50-4AB0-89A5-02B9A551F0FA")
+            };
+            admin.PasswordHash = CreatePasswordHash(admin, "123456");
 
-		}
+            builder.HasData(superadmin, admin);
+
+        }
 		private string CreatePasswordHash(AppUser user, string password)
 		{
 			var passwordHasher = new PasswordHasher<AppUser>();

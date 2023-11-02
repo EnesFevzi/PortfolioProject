@@ -2,7 +2,7 @@
 
 # Admin panelli .NET CORE 6 Özgeçmiş Sitesi
 
-Admin panelli .NET CORE 6 Özgeçmiş Sitesi, ASP.NET Core 6.0 ve Entity Framework Core kullanılarak geliştirilmiş bir web uygulamasıdır. Bu proje, güçlü bir teknoloji yığını ile oluşturulmuş olup, modern bir makale sitesi deneyimi sunmayı amaçlar.
+Admin panelli .NET CORE 6 Özgeçmiş Sitesi, ASP.NET Core 6.0 ve Entity Framework Core kullanılarak geliştirilmiş bir web uygulamasıdır. Bu proje, güçlü bir teknoloji yığını ile oluşturulmuş olup, modern bir özgeçmiş sitesi deneyimi sunmayı amaçlar.
 
 
 ## Teknolojiler ve Araçlar
